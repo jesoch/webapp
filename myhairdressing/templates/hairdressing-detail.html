@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>
+	{{adminhairdressing.name}}
+
+</h1>
+<h2>Datos de la Peluquería:</h2>
+
+<ul>
+	<li>Nombre: {{ hairdressing.name }}</li>
+    <li>Dirección: {{ hairdressing.street }}, {{ hairdressing.number }}</li>
+    <li>Ciudad: {{ hairdressing.city }}</li>
+    <li>Teléfono: {{ hairdressing.phone }}</li>
+
+
+
+
+<a href="javascript:window.history.back()">Volver</a>
+
+
+{% endblock %}
+

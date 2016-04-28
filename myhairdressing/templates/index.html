@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <meta charset="UTF-8">
+    <title>Hairdressing Web</title>
+</head>
+<body>
+	<div id="header">
+		<h1>Peluquerias Online</h1>
+
+    <div id="header-right">
+            {% if user.username %}Bienvenido {{ user.username }}! | <a href="/logout">Desconectar</a> {% else %} <input class="button" type="button" value="Acceder" onclick="location.href='/login';"/>{% endif %}
+    </div>
+	</div>
+
+    	<div id="content">
+		<div id="sidebar">
+			<ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/hairdressing">Listar Peluquerias</a></li>
+      </ul>
+      {% if user.username %}
+      <div class="menuItem">Menú Usuario</div>
+      <ul>
+             <li><a href="/citations">Ver mis Citas</a></li>
+      </ul>
+      {% endif %}
+
+      {% if user.is_superuser %}
+
+      <div class="menuItem">Menú Administrador</div>
+      <ul>
+            <li><a href="/hairdressing">Modificar Peluquerías</a></li>
+      </ul>
+      {% endif %}
+
+		</div>
+
+		<div id="main-content">
+            {% block content %}
+                <h2>RESERVA CITAS DE BELLEZA Y PELUQUERIA</h2>
+                Te proponemos la manera más rápida y cómoda para reservar un servicio sin ... Peluquería innovadora donde arte, diseño y estilo se fusionan creando nuevas .<br>
+                <br><br/>
+                    <b>Fecha:</b> 17/04/2016<br />
+                    <b>Creadores:</b>
+                    <ul>
+                        <li>Jennifer Soliz</li>
+                        <li>Jorge Belluscio</li>
+                    </ul>
+
+                    </ul>
+            {% endblock	%}
+		</div>
+
+		<div class="clear"></div>
+	</div>
+
+</body>
+</html>

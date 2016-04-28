@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+        <form class="login-form" action="." method="post">
+            {% if form.errors %}
+                <div class="alert">Los datos de acceso no son validos.</div>
+            {% endif %}
+        {% csrf_token %}
+
+        <div>
+            <label for="username">Usuario:</label>
+            <div>
+                <input type="text" id="username" name="username"  placeholder="Usuario">
+            </div>
+        </div>
+        <div>
+            <label for="password">Contraseña:</label>
+            <div>
+                <input type="password" name="password" id="password" placeholder="Contraseña">
+            </div>
+        </div>
+        <div>
+            <div>
+                <input type="hidden" name="next" value="/" />
+                <input class="button" type="submit" value="Entrar" />
+            </div>
+        </div>
+        </form>
+{% endblock %}

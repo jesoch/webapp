@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block content %}
+<h2>
+    Peluquerias:
+</h2>
+    {% for hairdressings in HairdressingList %}
+        <a href="{{ hairdressings.id }}">{{ hairdressings.name }}</a><br />
+    {% empty %}No hay peluquerías asociadas.
+    {% endfor %}
+{% endblock	%}

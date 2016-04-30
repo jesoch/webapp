@@ -4,6 +4,10 @@
             {% if form.errors %}
                 <div class="alert">Los datos de acceso no son validos.</div>
             {% endif %}
+        {% if request.GET.id == "1" %}
+        <div class="alert">Para reservar cita, tienes que Autenticarte.</div>
+        {% endif %}
+
         {% csrf_token %}
 
         <div>
@@ -21,7 +25,7 @@
         <div>
             <div>
                 <input type="hidden" name="next" value="/" />
-                <input class="button" type="submit" value="Entrar" />
+                <input class="button" type="submit" value="Entrar" /> <a style="margin-left:80px; text-decoration: underline" href="/register">Reg&iacute;strate</a>
             </div>
         </div>
         </form>

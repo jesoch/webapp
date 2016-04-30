@@ -4,7 +4,15 @@
     Peluquerias:
 </h2>
     {% for hairdressings in HairdressingList %}
-        <a href="{{ hairdressings.id }}">{{ hairdressings.name }}</a><br />
+        <div style="float:left;width: 150px;">
+            <img src="/{{ hairdressings.image }}" style="width: 150px;padding-right:50px;">
+        </div>
+        <div style="margin-left:180px;margin-top:40px;font-size:16px;font-family: Bitstream Vera Sans">
+        <a href="{{ hairdressings.id }}">
+            {{ hairdressings.name }}
+        </a>
+        </div>
+        <br />
     {% empty %}No hay peluquerías asociadas.
     {% endfor %}
 {% endblock	%}

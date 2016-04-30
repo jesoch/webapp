@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'webapp',
     'myhairdressing',
 ]
+LOGIN_REDIRECT_URL = '/myhairdressing/'
+LOGIN_URL = '/login/'
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

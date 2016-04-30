@@ -5,8 +5,9 @@
 
 </h1>
 <h2>Datos de la Peluquería:</h2>
-
-<ul>
+<div style="height:210px;font-family: Symbol; font-size: 14px">
+<img src="/{{ hairdressing.image }}" style="height:200px;float:left;padding-right:30px"/>
+<ul style=" line-height: 40px; list-style: none">
 	<li>Nombre: {{ hairdressing.name }}</li>
     <li>Dirección: {{ hairdressing.street }}, {{ hairdressing.number }}</li>
     <li>Ciudad: {{ hairdressing.city }}</li>
@@ -15,9 +16,24 @@
 
 </ul>
 
+</div>
 
-<a href="javascript:window.history.back()">Volver</a>
+<br />
 
+<span style="font-size: 14px"><span style="color: #990000; font-weight: bold;">Acerca de nosotros</span> <br /><br />{{ hairdressing.description }}</span>
+
+<form style="margin-top:20px;" action="{% url 'citation_create' %}" method="POST">
+{% csrf_token %}
+{% for schedule in hairdressing.schedule.all %}
+    <input checked type="radio" name="schedule" value="{{ schedule.id }}">{{ schedule.get_day_display }} {{ schedule.get_hour_display }} <br />
+{% empty %}<li>No hay horarios para este peluquero.</li>
+{% endfor %}
+<br /><br />
+<input type="hidden" name="user" value="{{ user }}">
+<input class="button" type="submit" value="Pedir Cita">
+</form>
+
+<a style="float:right; font-size: 16px; text-decoration: underline" href="javascript:window.history.back()">Volver</a>
 
 {% endblock %}
 

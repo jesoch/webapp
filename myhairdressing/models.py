@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
+from django.utils.safestring import mark_safe
 
 # Create your models here.
 
@@ -15,7 +16,9 @@ class Hairdressing(models.Model):
     city= models.CharField(max_length=50)
     phone = models.CharField(max_length=12)
     description = models.TextField(max_length=4000)
-    schedule_hairdressing = models.TextField(max_length=20)
+    schedule_hairdressing = models.CharField(max_length=70)
+    image = models.FileField(upload_to='static/img')
+
 
     def __str__(self):
         return self.name

@@ -1,18 +1,20 @@
 {% extends "index.html" %}
 {% block content %}
+
 <h2>
     Peluquerias:
 </h2>
     {% for hairdressings in HairdressingList %}
-        <div style="float:left;width: 150px;">
-            <img src="/{{ hairdressings.image }}" style="width: 150px;padding-right:50px;">
+        <div style="height: 160px;;">
+            <div style="float:left;heigth: 150px;">
+                <img src="/{{ hairdressings.image }} " style="width: 150px;padding-right:50px;">
+            </div>
+            <div style="margin-left:180px;font-size:16px;padding-top:60px;">
+            <a href="{{ hairdressings.id }}">
+                {{ hairdressings.name }}
+            </a>
+            </div>
         </div>
-        <div style="margin-left:180px;margin-top:40px;font-size:16px;">
-        <a href="{{ hairdressings.id }}">
-            {{ hairdressings.name }}
-        </a>
-        </div>
-        <br />
     {% empty %}No hay peluquerías asociadas.
     {% endfor %}
 {% endblock	%}

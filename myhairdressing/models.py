@@ -17,7 +17,7 @@ class Hairdressing(models.Model):
     phone = models.CharField(max_length=12)
     description = models.TextField(max_length=4000)
     schedule_hairdressing = models.CharField(max_length=70)
-    image = models.FileField(upload_to='static/img')
+    image = models.FileField(upload_to='myhairdressing/static/img')
 
 
     def __str__(self):

@@ -22,11 +22,12 @@
 
 <span style="font-size: 14px"><span style="color: #990000; font-weight: bold;">Acerca de nosotros</span> <br /><br />{{ hairdressing.description }}</span>
 
+<br /> <br />
+<span style="font-size: 14px; font-weight: bold">Horario disponible para tu cita:</span>
 <form style="margin-top:20px;" action="{% url 'citation_create' %}" method="POST">
 {% csrf_token %}
 {% for schedule in hairdressing.schedule.all %}
     <input checked type="radio" name="schedule" value="{{ schedule.id }}">{{ schedule.get_day_display }} {{ schedule.get_hour_display }} <br />
-{% empty %}<li>No hay horarios para este peluquero.</li>
 {% endfor %}
 <br /><br />
 <input type="hidden" name="user" value="{{ user }}">
